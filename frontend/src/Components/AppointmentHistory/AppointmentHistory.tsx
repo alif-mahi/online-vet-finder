@@ -35,35 +35,45 @@ export default function AppointmentHistory() {
   }, [user_id]);
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen-no-nav bg-gray-100 p-4">
-      <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-4 text-center">
+    <div className="min-h-screen bg-gradient-to-r from-blue-50 to-purple-50 flex items-center justify-center p-6">
+      <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full transform transition-all duration-300 hover:scale-105">
+        <h1 className="text-3xl font-bold text-blue-700 mb-8 text-center">
           Appointment History
         </h1>
 
         {appointments ? (
           <div>
             {appointments.length > 0 ? (
-              <ul className="space-y-4">
+              <ul className="space-y-6">
                 {appointments.map((appointment) => (
                   <li
                     key={appointment._id}
-                    className="p-4 bg-gray-50 border rounded"
+                    className="p-6 bg-gray-50 rounded-lg shadow-md border border-gray-200"
                   >
-                    <p className="font-semibold">
-                      Service: {appointment.serviceId.name}
-                    </p>
-                    <p>Vet: {appointment.vet_id.name}</p>
-                    <p>Price: ${appointment.serviceId.cost}</p>
-                    <p>
-                      Date:{" "}
-                      {new Date(appointment.createdAt).toLocaleDateString()}
-                    </p>
+                    <div className="space-y-2">
+                      <p className="text-lg font-semibold text-blue-700">
+                        Service: {appointment.serviceId.name}
+                      </p>
+                      <p className="text-gray-600">
+                        <span className="font-semibold">Vet:</span>{" "}
+                        {appointment.vet_id.name}
+                      </p>
+                      <p className="text-gray-600">
+                        <span className="font-semibold">Price:</span> $
+                        {appointment.serviceId.cost}
+                      </p>
+                      <p className="text-gray-600">
+                        <span className="font-semibold">Date:</span>{" "}
+                        {new Date(appointment.createdAt).toLocaleDateString()}
+                      </p>
+                    </div>
                   </li>
                 ))}
               </ul>
             ) : (
-              <p className="text-gray-500">No appointments found.</p>
+              <p className="text-center text-gray-500">
+                No appointments found.
+              </p>
             )}
           </div>
         ) : (

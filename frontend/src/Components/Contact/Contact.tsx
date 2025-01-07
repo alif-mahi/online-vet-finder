@@ -1,89 +1,108 @@
-// import React from "react";
-
 export default function Contact() {
   return (
-    <div className="h-screen-no-nav bg-gray-100 p-4">
-      <header className="text-center py-8">
-        <h1 className="text-4xl font-bold text-blue-600">
-          Emergency Contact Information
-        </h1>
-        <p className="mt-2 text-lg text-gray-700">
-          Keep this information handy for your pet's safety.
-        </p>
-      </header>
+    <div
+      className="min-h-screen bg-cover bg-center bg-fixed p-6"
+      style={{ backgroundImage: "url('/contact.jpg')" }}
+    >
+      <div className="bg-white bg-opacity-90 rounded-xl shadow-2xl max-w-7xl mx-auto p-8">
+        {/* Header Section */}
+        <header className="text-center py-10">
+          <h1 className="text-5xl font-bold text-blue-800 mb-4">
+            Emergency Contact Information
+          </h1>
+          <p className="text-xl text-gray-700">
+            Keep this information handy for your pet's safety.
+          </p>
+        </header>
 
-      <section className="my-8">
-        <h2 className="text-3xl font-semibold text-blue-500 text-center mb-4">
-          Emergency Vet Clinics
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-white rounded-lg shadow-md p-4">
-            <h3 className="text-xl font-bold">City Animal Hospital</h3>
-            <p className="text-gray-600">Phone: (123) 456-7890</p>
-            <p className="text-gray-600">Address: 123 Main St, Anytown, USA</p>
-            <p className="text-gray-600">Hours: 24/7</p>
+        {/* Emergency Vet Clinics Section */}
+        <section className="my-12">
+          <h2 className="text-4xl font-semibold text-blue-700 text-center mb-8">
+            Emergency Vet Clinics
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              {
+                name: "City Animal Hospital",
+                phone: "(123) 456-7890",
+                address: "123 Main St, Anytown, USA",
+                hours: "24/7",
+              },
+              {
+                name: "Emergency Pet Care",
+                phone: "(987) 654-3210",
+                address: "456 Elm St, Othertown, USA",
+                hours: "24/7",
+              },
+              {
+                name: "Paws & Claws Veterinary Clinic",
+                phone: "(555) 123-4567",
+                address: "789 Oak St, Sometown, USA",
+                hours: "24/7",
+              },
+              {
+                name: "Animal Emergency Center",
+                phone: "(444) 987-6543",
+                address: "321 Pine St, Anycity, USA",
+                hours: "24/7",
+              },
+            ].map((clinic, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6"
+              >
+                <h3 className="text-2xl font-bold text-blue-800 mb-4">
+                  {clinic.name}
+                </h3>
+                <p className="text-gray-600">
+                  <span className="font-semibold">Phone:</span> {clinic.phone}
+                </p>
+                <p className="text-gray-600">
+                  <span className="font-semibold">Address:</span>{" "}
+                  {clinic.address}
+                </p>
+                <p className="text-gray-600">
+                  <span className="font-semibold">Hours:</span> {clinic.hours}
+                </p>
+              </div>
+            ))}
           </div>
-          <div className="bg-white rounded-lg shadow-md p-4">
-            <h3 className="text-xl font-bold">Emergency Pet Care</h3>
-            <p className="text-gray-600">Phone: (987) 654-3210</p>
-            <p className="text-gray-600">Address: 456 Elm St, Othertown, USA</p>
-            <p className="text-gray-600">Hours: 24/7</p>
-          </div>
-          <div className="bg-white rounded-lg shadow-md p-4">
-            <h3 className="text-xl font-bold">
-              Paws & Claws Veterinary Clinic
-            </h3>
-            <p className="text-gray-600">Phone: (555) 123-4567</p>
-            <p className="text-gray-600">Address: 789 Oak St, Sometown, USA</p>
-            <p className="text-gray-600">Hours: 24/7</p>
-          </div>
-          <div className="bg-white rounded-lg shadow-md p-4">
-            <h3 className="text-xl font-bold">Animal Emergency Center</h3>
-            <p className="text-gray-600">Phone: (444) 987-6543</p>
-            <p className="text-gray-600">Address: 321 Pine St, Anycity, USA</p>
-            <p className="text-gray-600">Hours: 24/7</p>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="my-8">
-        <h2 className="text-3xl font-semibold text-blue-500 text-center mb-4">
-          General Emergency Advice
-        </h2>
-        <ul className="list-disc list-inside text-gray-700">
-          <li>Stay calm and assess the situation.</li>
-          <li>Contact your emergency vet clinic immediately.</li>
-          <li>
-            If your pet is injured, try to keep them still and avoid moving them
-            unless necessary.
-          </li>
-          <li>
-            Keep a first aid kit for pets at home, including bandages,
-            antiseptic wipes, and any necessary medications.
-          </li>
-          <li>
-            Know the signs of common emergencies, such as difficulty breathing,
-            excessive bleeding, or seizures.
-          </li>
-          <li>
-            Have a plan for transportation to the vet in case of an emergency.
-          </li>
-          <li>Always keep your vet's contact information readily available.</li>
-        </ul>
-      </section>
+        {/* General Emergency Advice Section */}
+        <section className="my-12">
+          <h2 className="text-4xl font-semibold text-blue-700 text-center mb-8">
+            General Emergency Advice
+          </h2>
+          <ul className="list-disc list-inside text-gray-700 space-y-4 text-lg">
+            {[
+              "Stay calm and assess the situation.",
+              "Contact your emergency vet clinic immediately.",
+              "If your pet is injured, try to keep them still and avoid moving them unless necessary.",
+              "Keep a first aid kit for pets at home, including bandages, antiseptic wipes, and any necessary medications.",
+              "Know the signs of common emergencies, such as difficulty breathing, excessive bleeding, or seizures.",
+              "Have a plan for transportation to the vet in case of an emergency.",
+              "Always keep your vet's contact information readily available.",
+            ].map((advice, index) => (
+              <li key={index}>{advice}</li>
+            ))}
+          </ul>
+        </section>
 
-      <section className="text-center my-8">
-        <h2 className="text-3xl font-semibold text-blue-500 mb-4">
-          Be Prepared!
-        </h2>
-        <p className="text-lg text-gray-700 mb-4">
-          Emergencies can happen at any time. Make sure you are prepared to act
-          quickly and effectively.
-        </p>
-        <button className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300">
-          Learn More About Pet Care
-        </button>
-      </section>
+        {/* Call-to-Action Section */}
+        <section className="text-center my-12">
+          <h2 className="text-4xl font-semibold text-blue-700 mb-6">
+            Be Prepared!
+          </h2>
+          <p className="text-xl text-gray-700 mb-8">
+            Emergencies can happen at any time. Make sure you are prepared to
+            act quickly and effectively.
+          </p>
+          <button className="bg-blue-700 text-white text-xl py-3 px-8 rounded-lg hover:bg-blue-800 transition duration-300 transform hover:scale-105">
+            Learn More About Pet Care
+          </button>
+        </section>
+      </div>
     </div>
   );
 }
